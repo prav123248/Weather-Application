@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
+
+
+.currentContainer {
+    margin-top: 2em;
+    font-size: 14pt;
+    text-align: left;
+}
+.tempstats {
+    font-size: 14pt;
+    margin: 0.3em;
+    margin-left: 2.1em;
+
+}
+
+#Location {
+    font-size: 11pt;
+    margin-bottom: 0em;
+    margin-left: 2.8em;
+}
+
+#temp {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 53pt;
+    margin-left: 0.5em;
+}
+
+.upcomingContainer {
+    margin-top: 9em;
+}
+.upcomingContainer table {
+    font-size: 12pt;
+    border-spacing: 0.8em;
+    margin-left: 1.35em;
+    margin-bottom: 0;
+}
+
+.upcomingContainer th {
+    font-weight:normal;
+}
+
+.upcomingContainer img {
+    width: 1.7em;
+    height: auto;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+

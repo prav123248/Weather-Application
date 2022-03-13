@@ -1,0 +1,24 @@
+#screen1 {
+	background-image: url('../assets/backgrounds/screen1.png')
+}
+
+#screen2 {
+	background-image: url('../assets/backgrounds/screen2.png')
+}
+
+#screen3 {
+	background-image: url('../assets/backgrounds/screen3.png')
+}
+
+.container {
+	font-family: "Comfortaa", sans-serif;
+	color: #fff;
+	border: 0.02em solid black;
+	width: 375px;
+	height: 667px;
+	text-align: center;
+	margin: 0 auto;
+
+}
+
+
