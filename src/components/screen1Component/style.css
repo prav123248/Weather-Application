@@ -27,13 +27,16 @@
 }
 
 .upcomingContainer {
-    margin-top: 9em;
+    margin-top: 10em;
+    overflow-y:scroll;
+    overflow-x: scroll;
+    margin-left: 1.36em;
+    margin-right: 1.36em;
 }
 .upcomingContainer table {
     font-size: 12pt;
     border-spacing: 0.8em;
-    margin-left: 1.35em;
-    margin-bottom: 0;
+    margin-bottom: -2.9em;
 }
 
 .upcomingContainer th {

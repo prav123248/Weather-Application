@@ -18,61 +18,66 @@ export default class Screen1 extends Component {
     }
 
 
+
     render(){
+        const weekdays = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"]
+        const today = new Date();
+
         return (
             <div id="screen1" className="container">   
                 <Header />
                 <div className="currentContainer">
                     <p id="Location">Horsenden Hill</p>
-                    <p id="temp">27°</p>
-                    <p className="tempstats">Visibility : Clear</p>
-                    <p className="tempstats">Humidity : 67%</p>
-                    <p className="tempstats">Expect light winds</p>
+                    <p id="temp">{Math.round(this.props.currentData.temperature)}°</p>
+                    <p className="tempstats">Visibility : {this.props.currentData.visibility}</p>
+                    <p className="tempstats">Humidity : {this.props.currentData.humidity}%</p>
+                    <p className="tempstats">{this.props.currentData.message}</p>
                 </div>
 
                 <div className="upcomingContainer">
                     <table>
-                        <tr>
-                            <th>Mon</th>
-                            <th>Tue</th>
-                            <th>Wed</th>
-                            <th>Thu</th>
-                            <th>Fri</th>
-                            <th>Sat</th>
-                            <th>Sun</th>
-                        </tr>
+                        <tbody>
+                            <tr>
+                                <th>{weekdays[(today.getDay()+1) % 7]}</th>
+                                <th>{weekdays[(today.getDay()+2) % 7]}</th>
+                                <th>{weekdays[(today.getDay()+3) % 7]}</th>
+                                <th>{weekdays[(today.getDay()+4) % 7]}</th>
+                                <th>{weekdays[(today.getDay()+5) % 7]}</th>
+                                <th>{weekdays[(today.getDay()+6) % 7]}</th>
+                                <th>{weekdays[(today.getDay()+7) % 7]}</th>
+                            </tr>
 
-                        <tr>
-                            <td>22</td>
-                            <td>30</td>
-                            <td>-3</td>
-                            <td>-13</td>
-                            <td>23</td>
-                            <td>30</td>
-                            <td>-20</td>
-                        </tr>
+                            <tr>
+                                <td>{Math.round(this.props.upcomingData[0]['temp']['max'])}</td>
+                                <td>{Math.round(this.props.upcomingData[1]['temp']['max'])}</td>
+                                <td>{Math.round(this.props.upcomingData[2]['temp']['max'])}</td>
+                                <td>{Math.round(this.props.upcomingData[3]['temp']['max'])}</td>
+                                <td>{Math.round(this.props.upcomingData[4]['temp']['max'])}</td>
+                                <td>{Math.round(this.props.upcomingData[5]['temp']['max'])}</td>
+                                <td>{Math.round(this.props.upcomingData[6]['temp']['max'])}</td>
+                            </tr>
 
-                        <tr>
-                            <td>10</td>
-                            <td>-30</td>
-                            <td>45</td>
-                            <td>-23</td>
-                            <td>10</td>
-                            <td>-05</td>
-                            <td>30</td>
-                        </tr>
+                            <tr>
+                                <td>{Math.round(this.props.upcomingData[0]['temp']['min'])}</td>
+                                <td>{Math.round(this.props.upcomingData[1]['temp']['min'])}</td>
+                                <td>{Math.round(this.props.upcomingData[2]['temp']['min'])}</td>
+                                <td>{Math.round(this.props.upcomingData[3]['temp']['min'])}</td>
+                                <td>{Math.round(this.props.upcomingData[4]['temp']['min'])}</td>
+                                <td>{Math.round(this.props.upcomingData[5]['temp']['min'])}</td>
+                                <td>{Math.round(this.props.upcomingData[6]['temp']['min'])}</td>
+                            </tr>
 
-                        <tr>
-                            <td><img src={sunny}/></td>
-                            <td><img src={sunny}/></td>
-                            <td><img src={sunny}/></td>
-                            <td><img src={snow}/></td>
-                            <td><img src={cloudy}/></td>
-                            <td><img src={heavy}/></td>
-                            <td><img src={rain}/></td>
-                        </tr>
+                            <tr>
+                                <td><img src={sunny}/></td>
+                                <td><img src={sunny}/></td>
+                                <td><img src={sunny}/></td>
+                                <td><img src={snow}/></td>
+                                <td><img src={cloudy}/></td>
+                                <td><img src={heavy}/></td>
+                                <td><img src={rain}/></td>
+                            </tr>
 
-
+                        </tbody>
                     </table>
 
                 </div>
@@ -82,3 +87,4 @@ export default class Screen1 extends Component {
         );
     }
 }
+

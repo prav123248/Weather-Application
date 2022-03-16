@@ -2,7 +2,11 @@
     width: 2em;
     height: auto;
     padding-left: 2.83em;
-    padding-bottom: 0.5em;
+    padding-bottom: 1em;
     padding-right: 2.83em;
 }
 
+.toolbar {
+    margin-top: 0.8em;
+    padding-bottom: 1em;
+}
