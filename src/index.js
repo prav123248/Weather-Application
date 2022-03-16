@@ -44,7 +44,10 @@ export default class App extends Component {
     apiCall = (position) => {
         var longitude = position.coords.longitude;
         var latitude =  position.coords.latitude;
-        console.log(longitude, latitude)
+        this.setState({
+            longitude: Math.round(longitude),
+            latitude: Math.round(latitude)
+        })
         const units = "metric";
         //const API_KEY = "c8f3d6883986e24d20be5f086d83162a";
         const API_KEY = "65159ed447f6c9057beb2bf1aa2bcd61";
@@ -64,8 +67,9 @@ export default class App extends Component {
                 humidity: parsed['current']['humidity'],
                 visibility: parsed['current']['visibility'],
                 temperature: parsed['current']['temp'],
-                message: parsed['current']['weather'][0]['description']
-
+                message: parsed['current']['weather'][0]['description'],
+                windSpeed: parsed['current']['wind_speed'],
+                windDirection: parsed['current']['wind_deg']
            },
             upcomingData: parsed['daily'],
             dataLoaded : true
@@ -87,7 +91,7 @@ export default class App extends Component {
             return (<Screen2 instance={this} data={this.state.data} />)
             }
         else {
-            return (<Screen1 instance={this} currentData={this.state.currentData} upcomingData={this.state.upcomingData} />)
+            return (<Screen1 instance={this} currentData={this.state.currentData} upcomingData={this.state.upcomingData} long={this.state.longitude} lat={this.state.latitude} />)
         }
     }
 }

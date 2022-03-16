@@ -30,4 +30,7 @@
 
 }
 
+.nonCapital {
+	text-transform: none;
+}
 

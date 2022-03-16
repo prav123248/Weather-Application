@@ -10,7 +10,7 @@ import sunny from '../../assets/icons/sunny.png'
 import rain from '../../assets/icons/rain.png'
 import heavy from '../../assets/icons/heavy-rain.png'
 import snow from '../../assets/icons/snow.png'
-
+import direction from '../../assets/icons/direction.png'
 
 export default class Screen1 extends Component {
     constructor(props) {
@@ -22,15 +22,58 @@ export default class Screen1 extends Component {
     render(){
         const weekdays = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"]
         const today = new Date();
+        const upcomingWeekIcons = []
+        for (var i = 0; i < 7; i++) {
+            var weather = this.props.upcomingData[i]['weather'][0]['main']
+            if (weather === "Thunderstorm") {
+                upcomingWeekIcons.push(heavy)
+            } 
+            else if (weather === "Drizzle" || weather === "Rain") {
+                upcomingWeekIcons.push(rain)
+            }
+            else if (weather === "Snow") {
+                upcomingWeekIcons.push(snow)
+            }
+            else if (weather === "Clear") {
+                upcomingWeekIcons.push(sunny)
+            }
+            else {
+                upcomingWeekIcons.push(cloudy)
+            }
+
+        }
+
+        let longitudeDisplay = ""
+        let latitudeDisplay = ""
+        
+        if (this.props.lat < 0) {
+            latitudeDisplay = this.props.lat + "°S"
+        }
+        else {
+            latitudeDisplay = this.props.lat + "°N"
+        }
+
+        if (this.props.long < 0) {
+            longitudeDisplay = this.props.long + "°W"
+        }
+        else {
+            longitudeDisplay = this.props.long + "°E"
+        }
+
+
 
         return (
             <div id="screen1" className="container">   
                 <Header />
                 <div className="currentContainer">
-                    <p id="Location">Horsenden Hill</p>
+                    <p id="Location">{latitudeDisplay}, {longitudeDisplay}</p>
                     <p id="temp">{Math.round(this.props.currentData.temperature)}°</p>
                     <p className="tempstats">Visibility : {this.props.currentData.visibility}</p>
                     <p className="tempstats">Humidity : {this.props.currentData.humidity}%</p>
+                    <p className="tempstats nonCapital">
+                        Wind : {this.props.currentData.windSpeed}m/s
+                        <img style={{transform: `rotate(` + this.props.currentData.windDirection + `deg)`}} id="directionLogo" src={direction}/>
+                    </p>
                     <p className="tempstats">{this.props.currentData.message}</p>
                 </div>
 
@@ -68,13 +111,13 @@ export default class Screen1 extends Component {
                             </tr>
 
                             <tr>
-                                <td><img src={sunny}/></td>
-                                <td><img src={sunny}/></td>
-                                <td><img src={sunny}/></td>
-                                <td><img src={snow}/></td>
-                                <td><img src={cloudy}/></td>
-                                <td><img src={heavy}/></td>
-                                <td><img src={rain}/></td>
+                                <td><img src={upcomingWeekIcons[0]}/></td>
+                                <td><img src={upcomingWeekIcons[1]}/></td>
+                                <td><img src={upcomingWeekIcons[2]}/></td>
+                                <td><img src={upcomingWeekIcons[3]}/></td>
+                                <td><img src={upcomingWeekIcons[4]}/></td>
+                                <td><img src={upcomingWeekIcons[5]}/></td>
+                                <td><img src={upcomingWeekIcons[6]}/></td>
                             </tr>
 
                         </tbody>
