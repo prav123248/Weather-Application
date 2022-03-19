@@ -15,7 +15,27 @@ export default class Screen3 extends Component {
                 <Header />
                 <div class="scrollableParent">
                     <h2>Trail Schedule</h2>
+                    
+                    <table>
+                        <tbody>
+                            <tr>
+                                <th class="scheduleName">Trail Name</th>
+                                <th class="scheduleDate">Date</th>
+                            </tr>
 
+                            <tr>
+                                <td class="scheduleName">Harrow</td>
+                                <td class="scheduleDate">23/01/21</td>
+                            </tr>   
+
+                            <tr>
+                                <td class="scheduleName">Britain</td>
+                                <td class="scheduleDate">23/01/21</td>
+                            </tr>   
+
+
+                        </tbody>
+                    </table>
 
                 </div>
                 <Toolbar instance={this.props.instance} screen={3} />

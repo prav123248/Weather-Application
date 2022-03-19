@@ -2,6 +2,7 @@
 
 
 .currentContainer {
+    flex: 1 1 auto;
     margin-top: 2em;
     font-size: 14pt;
     text-align: left;
@@ -33,6 +34,7 @@
 }
 
 .upcomingContainer {
+    flex: 1 1 auto;
     margin-top: 8.5em;
     overflow-y:scroll;
     overflow-x: scroll;

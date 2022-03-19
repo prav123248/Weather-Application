@@ -1,7 +1,5 @@
 #screen1 {
 	background-image: url('../assets/backgrounds/screen1.png');
-	background-repeat: repeat-x;
-	background-color: #43ac0f;
 }
 
 #screen2 {
@@ -33,7 +31,7 @@
 /*	width: 375px;
 	height: 667px; */
 	display: flex;
-	flex-wrap: wrap;
+	flex-wrap: nowrap;
 	flex-direction: column;
 	text-align: center;
 	margin: 0 auto; 
@@ -45,7 +43,9 @@
 }
 
 .scrollableParent {
-	margin-top: 0.8em;
-	margin-left: 1.5em;
-	margin-right: 1.5em;
+	margin-top: 2em;
+	margin-bottom: 15em;
+	padding-bottom: 7em;
+	overflow-y:scroll;
+    overflow-x: scroll;
 }

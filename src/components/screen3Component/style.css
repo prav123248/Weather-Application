@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
 
-#screen3 h2 {
-    padding-bottom: 1000%;
+
+.scrollableParent table {
+    width: 100%;
+    font-size: 12pt;
+    border-collapse: separate;
+    border-spacing: 0.5em;
+    margin-bottom: -2.9em;
 }

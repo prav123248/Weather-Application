@@ -12,7 +12,7 @@ export default class App extends Component {
         super(props);
 
         this.state = {
-            selectedScreen : 1,
+            selectedScreen : 3,
             dataLoaded : false,
             loadingMessage : "Loading (Ensure location services are enabled)"
         }
