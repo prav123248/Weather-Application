@@ -12,7 +12,11 @@ export default class Screen3 extends Component {
                 
             <div id="screen3" className="container">   
                 <Header />
-                <h1>Screen 3 - Change stuff between header and toolbar</h1>
+                <div class="scrollableParent">
+                    <h2>Trail Schedule</h2>
+                    
+
+                </div>
                 <Toolbar instance={this.props.instance} screen={3} />
             </div>
         );

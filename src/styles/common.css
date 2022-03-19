@@ -18,6 +18,7 @@
 	margin-top: 5em;
 }
 
+
 .container {
 	font-family: "Comfortaa", sans-serif;
 	color: #fff;
@@ -27,10 +28,15 @@
 	text-align: center;
 	margin: 0 auto;
 	text-transform: capitalize;
-
 }
 
 .nonCapital {
 	text-transform: none;
 }
 
+.scrollableParent {
+	border: 1px solid black;
+	margin-top: 0.8em;
+	margin-left: 1.5em;
+	margin-right: 1.5em;
+}
