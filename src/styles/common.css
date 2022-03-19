@@ -1,5 +1,7 @@
 #screen1 {
-	background-image: url('../assets/backgrounds/screen1.png')
+	background-image: url('../assets/backgrounds/screen1.png');
+	background-repeat: repeat-x;
+	background-color: #43ac0f;
 }
 
 #screen2 {
@@ -18,15 +20,23 @@
 	margin-top: 5em;
 }
 
+#root {
+	position: absolute;
+	top:0;
+	left:0;
+}
 
 .container {
 	font-family: "Comfortaa", sans-serif;
 	color: #fff;
 	border: 0.02em solid black;
-	width: 375px;
-	height: 667px;
+/*	width: 375px;
+	height: 667px; */
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: column;
 	text-align: center;
-	margin: 0 auto;
+	margin: 0 auto; 
 	text-transform: capitalize;
 }
 
@@ -35,7 +45,6 @@
 }
 
 .scrollableParent {
-	border: 1px solid black;
 	margin-top: 0.8em;
 	margin-left: 1.5em;
 	margin-right: 1.5em;

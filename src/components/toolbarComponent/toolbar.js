@@ -29,6 +29,7 @@ export default class Toolbar extends Component {
 
 
         return (
+
             <div className="toolbar">
                 <img id="screen1icon" src={screen1icon} onClick={() => this.props.instance.screenSwitch(1)} style={{opacity : opacity1}} />
                 <img id="screen2icon" src={screen2icon} onClick={() => this.props.instance.screenSwitch(2)} style={{opacity : opacity2}}/>

@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import '../../styles/common.css';
 import Header from '../headerComponent/header';
 import Toolbar from '../toolbarComponent/toolbar';
+import './style.css'
 
 export default class Screen3 extends Component {
     constructor(props) {

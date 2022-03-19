@@ -38,6 +38,7 @@
     overflow-x: scroll;
     margin-left: 1.36em;
     margin-right: 1.36em;
+    align-self: center;
 }
 .upcomingContainer table {
     font-size: 12pt;

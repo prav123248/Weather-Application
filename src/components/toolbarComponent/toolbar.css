@@ -1,12 +1,24 @@
+
 .toolbar {
-    margin-top: 0.8em;
+    display: flex;
+    justify-content: center;
 }
 
+
 .toolbar img {
+    flex-direction: row;
     width: 2em;
     height: auto;
     padding-left: 2.83em;
     padding-bottom: 0.3em;
     padding-right: 2.83em;
+  
+/*
+    padding-left: 2.83em;
+    padding-bottom: 0.3em;
+    padding-right: 2.83em;
+        width: 2em;
+    height: auto;
+    */
 }
 
