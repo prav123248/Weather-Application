@@ -29,13 +29,13 @@ export default class Toolbar extends Component {
 
 
         return (
-
+            <div className="toolbarContainer">
             <div className="toolbar">
                 <img id="screen1icon" src={screen1icon} onClick={() => this.props.instance.screenSwitch(1)} style={{opacity : opacity1}} />
                 <img id="screen2icon" src={screen2icon} onClick={() => this.props.instance.screenSwitch(2)} style={{opacity : opacity2}}/>
                 <img id="screen3icon" src={screen3icon} onClick={() => this.props.instance.screenSwitch(3)} style={{opacity : opacity3}}/>
             </div>
-
+            </div>
 
         );
     }

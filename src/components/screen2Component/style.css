@@ -2,7 +2,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
 
 
-#screen2 {
-    padding-bottom: 100%;
+
+
+.scheduleContainer {
+    display: flex;
+    flex-direction: column;
+	background-color:#67bcff;
+	margin-left: 1em;
+	margin-right: 1em;
+    margin-top: 1em;   
+    height: 15em;
 }
 
+.scrollable {
+    font-size: 12pt;
+    border-collapse: separate;
+    border-spacing: 0.5em;
+    margin-left: 1em;
+    margin-right: 1em;
+    overflow-y:auto;
+    overflow-x: auto;
+
+}
