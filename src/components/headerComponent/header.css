@@ -2,8 +2,10 @@
 .profileHeader {
 	height: 5.8em;
 	margin-top: 1.5em;
+	margin-bottom: 0.5em;
 }
 
 .profileHeader img {
-	width: 25%;
+	max-width: auto;
+	max-height: 100%;
 }

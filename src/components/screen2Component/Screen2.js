@@ -14,6 +14,7 @@ export default class Screen3 extends Component {
             <div id="screen2" className="container">   
                 <Header />
                 <h1>Screen 2 - Change stuff between header and toolbar</h1>
+
                 <div class="scheduleContainer">
                     <h2>Trail Schedule</h2>
                     <div class="scrollable">

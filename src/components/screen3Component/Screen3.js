@@ -38,7 +38,7 @@ export default class Screen3 extends Component {
                                 </tr>   
 
                                 <tr>
-                                    <td class="scheduleName">Britain and some other land </td>
+                                    <td class="scheduleName">asdasdadausdh aushd asu hdasduiash duas daisu daihd asihd isuhd asuihdaishdiaushdisaBritain and some other land </td>
                                     <td class="scheduleDate">23/01/21</td>
                                 </tr> 
 
@@ -63,7 +63,7 @@ export default class Screen3 extends Component {
                 </div>
                 
                 <div class="addSchedule">
-                
+                    
 
                 </div>
 
