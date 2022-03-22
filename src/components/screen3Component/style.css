@@ -1,23 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
 
 
-.scheduleContainer {
-	background-color:#67bcff;
-    height: 13em;
-    margin-bottom: 1em;
 
-}
 
-.scrollable {
-    display: flex;
-    font-size: 0.8em;
-    border-collapse: separate;
-    border-spacing: 0.5em;
-    overflow-y:auto;
-    overflow-x: auto;
-    flex-direction: column;
 
-}
+
+
 
 .scheduleName {
     padding-bottom: 0.5em;
@@ -37,15 +25,46 @@
     margin-left: 1em;
     margin-right: 1em;
     height: 7em;
-    
-    border: 1px solid black;
+    /*
+    background-color: #6ace39;
+    */
+    flex: 1 1 auto;
+
 }
 
+.addSchedule h3 {
+    font-size: 1em;
+    
+}
+
+.formContainer {
+    display: flex;
+    font-size: 0.8em;
+    flex-direction: row;
+}
+
+.smallPadding {
+    padding: 0.7em;
+
+}
+
+.scheduleSelecter option {
+    overflow: auto;
+    max-height: 20px;
+}
+
+#scheduleSubmit {
+    color:#67bcff;
+    background-color: #6ace39;
 
 
-
-
-
+    border: none;
+    color: white;
+    text-align: center;
+    font-size: 12px;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
 
 
 

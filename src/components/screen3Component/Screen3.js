@@ -13,9 +13,9 @@ export default class Screen3 extends Component {
                 
             <div id="screen3" className="container">   
                 <Header />
-                <div class="scheduleContainer">
+                <div class="upperScrollContainer">
                     <h2>Trail Schedule</h2>
-                    <div class="scrollable">
+                    <div class="scrollableTable">
                         <table>
                             <tbody>
                                 <tr>
@@ -56,6 +56,21 @@ export default class Screen3 extends Component {
                                     <td class="scheduleName">Britain and some other land </td>
                                     <td class="scheduleDate">23/01/21</td>
                                 </tr> 
+
+                                <tr>
+                                    <td class="scheduleName">Britain and some other land </td>
+                                    <td class="scheduleDate">23/01/21</td>
+                                </tr> 
+
+                                <tr>
+                                    <td class="scheduleName">Britain and some other land </td>
+                                    <td class="scheduleDate">23/01/21</td>
+                                </tr> 
+
+                                <tr>
+                                    <td class="scheduleName">Britain and some other land </td>
+                                    <td class="scheduleDate">23/01/21</td>
+                                </tr> 
                             </tbody>
                         </table>
 
@@ -63,7 +78,36 @@ export default class Screen3 extends Component {
                 </div>
                 
                 <div class="addSchedule">
-                    
+
+
+                    <h3>Schedule a Hike</h3>
+                    <div class="formContainer">
+                        <div class="smallPadding scheduleSelecter">
+                            <select name="trails">
+                                <option value="" selected="selected" disabled>Select Trail</option>
+                                <option value="London">London</option>
+                                <option value="London">London</option>
+                                <option value="London">London</option>
+                                <option value="London">London</option>
+                                <option value="London">London</option>
+                                <option value="London">London</option>
+                                <option value="London">London</option>
+                                <option value="London">London</option>
+                                <option value="London">London</option>
+                                <option value="London">London</option>
+                                <option value="London">London</option>
+                                <option value="London">London</option>
+                            </select>
+                        </div>
+
+                        <div class="smallPadding">
+                            <input type="date" name="scheduledDate"/>
+                        </div>
+
+                        <input id="scheduleSubmit" type="submit" value="Submit"/>
+                    </div>
+
+                        
 
                 </div>
 

@@ -48,3 +48,28 @@
 .nonCapital {
 	text-transform: none;
 }
+
+.upperScrollContainer {
+    height: 12em;
+    margin-bottom: 1em;
+    margin-left: 1em;
+	margin-right: 1em;
+    margin-top: 1em;   
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.scrollableTable {
+    display: flex;
+    font-size: 0.8em;
+    border-collapse: separate;
+    border-spacing: 0.5em;
+    overflow-y:auto;
+    overflow-x: auto;
+    flex-direction: column;
+    margin-left: 1em;
+    margin-right: 1em;
+
+}
