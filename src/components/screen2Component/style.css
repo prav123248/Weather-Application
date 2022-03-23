@@ -110,10 +110,16 @@
     margin-bottom: 20em;
 }
 
+.addTrailPage {
+    flex: 1 1 auto;
+    align-self: center;
+}
+
 #mapsContainer {
     width: 100vw;
     height: auto;
     display: flex;
+    
 
 }
 
@@ -128,3 +134,57 @@
     margin-bottom: 4em;
 
 }
+
+.addForm {
+    display: flex;
+    flex-direction: column;
+    margin-right: 1em;
+    margin-left: 1em;
+    margin-top: 2em;
+    flex: 1 1 auto;
+    align-self: center;
+
+}
+
+#nameInput {
+    margin-left: 3em;
+    margin-right: 3em;
+    margin-bottom: 1em;
+}
+
+#descriptionInput {
+    margin-left: 3em;
+    margin-right: 3em;
+    margin-bottom: 1em;
+    padding-bottom: 2em;
+    resize: none;
+
+}
+
+.addTrailButton {
+    font-size: 0.9em;
+    text-align: center;
+    border: None;
+    display: block;
+    color: white;
+    background-color:rgb(18, 155, 13);
+    border-radius: 0.5em;
+    padding: 0.4em;
+
+}
+
+#add {
+    align-self: flex-start;
+    margin-right: 8em;
+    margin-left: 8em;
+}
+
+#cancel {
+    align-self: flex-end;
+    margin-top: -1.9em;
+    margin-left: 8em;
+    margin-right: 8em;
+}
+
+
+

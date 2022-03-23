@@ -4,6 +4,14 @@ import Header from '../headerComponent/header';
 import Toolbar from '../toolbarComponent/toolbar';
 import './style.css'
 
+//Icon imports
+import cloudy from '../../assets/icons/cloudy.png'
+import sunny from '../../assets/icons/sunny.png'
+import rain from '../../assets/icons/rain.png'
+import heavy from '../../assets/icons/heavy-rain.png'
+import snow from '../../assets/icons/snow.png'
+import direction from '../../assets/icons/direction.png'
+
 export default class Screen3 extends Component {
     constructor(props) {
         super(props);
@@ -21,11 +29,13 @@ export default class Screen3 extends Component {
                                 <tr>
                                     <th class="scheduleName">Trail Name</th>
                                     <th class="scheduleDate">Date</th>
+                                    <th class="scheduleCondition">Condition</th>
                                 </tr>
 
                                 <tr>
                                     <td class="scheduleName">Harrow</td>
                                     <td class="scheduleDate">23/01/21</td>
+                                    <td><img src={upcomingWeekIcons[0]}/></td>
                                 </tr>   
 
                                 <tr>

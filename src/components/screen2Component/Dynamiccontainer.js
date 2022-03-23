@@ -22,10 +22,18 @@ export default class Dynamiccontainer extends Component {
         });
     }
 
-    addTrailMode = () => {
-        this.setState({
-            addTrail: true
+    changeAddTrail = () => {
+        if (this.state.addTrail === true) {
+            this.setState({
+                addTrail: false
+            })
+        }
+        else {
+            this.setState({
+                addTrail: true
         })
+    }
+        
 
     }
 
@@ -71,11 +79,11 @@ export default class Dynamiccontainer extends Component {
                     </div>
 
                     <div class="addForm">
-                        <input type="text" placeholder="Trail Name"></input>
-                        <input type="text" placeholder="Description"></input>
+                        <input id="nameInput" type="text" placeholder="Trail Name"></input>
+                        <textarea id="descriptionInput" name="description" placeholder="Description"></textarea>
                     
-                        <button class="addButton" id="Add" type="button">Add</button>
-                        <button class="addButton" id="cancel" type="button">Cancel</button>
+                        <button class="addTrailButton" id="add" type="button">Add</button>
+                        <button class="addTrailButton" id="cancel" onClick={this.changeAddTrail} type="button">Cancel</button>
                     </div>
 
                     <script>
@@ -86,7 +94,7 @@ export default class Dynamiccontainer extends Component {
         }
         else {
             return (
-                <Clickablelist trailChanger={this.changeSelectedTrail} selectedTrail={this.state.selectedTrail} addTrail={this.addTrailMode}/>
+                <Clickablelist trailChanger={this.changeSelectedTrail} selectedTrail={this.state.selectedTrail} addTrail={this.changeAddTrail} />
             );
         }
     }
