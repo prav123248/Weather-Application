@@ -35,7 +35,7 @@ export default class Screen3 extends Component {
                                 <tr>
                                     <td class="scheduleName">Harrow</td>
                                     <td class="scheduleDate">23/01/21</td>
-                                    <td><img src={upcomingWeekIcons[0]}/></td>
+                                    <td><img src={snow}/></td>
                                 </tr>   
 
                                 <tr>
