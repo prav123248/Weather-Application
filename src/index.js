@@ -67,12 +67,13 @@ export default class App extends Component {
                 humidity: parsed['current']['humidity'],
                 visibility: parsed['current']['visibility'],
                 temperature: parsed['current']['temp'],
-                message: parsed['current']['weather'][0]['description'],
+                message: parsed['current']['weather'][0],
                 windSpeed: parsed['current']['wind_speed'],
                 windDirection: parsed['current']['wind_deg']
            },
             upcomingData: parsed['daily'],
             dataLoaded : true
+            
         });
 
         
@@ -81,17 +82,17 @@ export default class App extends Component {
 
     render(){
         if (this.state.dataLoaded === false) {
-            return <Loading message={this.state.loadingMessage} />
+            return <Loading message={this.state.loadingMessage} condition="Loading" />
             
         }
         else if (this.state.selectedScreen === 3) {
-            return (<Screen3 instance={this} />)
+            return (<Screen3 instance={this} condition={this.state.currentData['message']['main']} />)
         }
         else if (this.state.selectedScreen === 2) {
-            return (<Screen2 instance={this} data={this.state.data} />)
+            return (<Screen2 instance={this} data={this.state.data} condition={this.state.currentData['message']['main']} />)
             }
         else {
-            return (<Screen1 instance={this} currentData={this.state.currentData} upcomingData={this.state.upcomingData} long={this.state.longitude} lat={this.state.latitude} />)
+            return (<Screen1 instance={this} currentData={this.state.currentData} upcomingData={this.state.upcomingData} long={this.state.longitude} lat={this.state.latitude} condition={this.state.currentData['message']['main']} />)
         }
     }
 }

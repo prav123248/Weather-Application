@@ -16,7 +16,7 @@ export default class Screen2 extends Component {
     render(){
         return (
             <div id="screen2" className="container">   
-                <Header />
+                <Header condition={this.props.condition} />
                 <Dynamiccontainer />
                 <Toolbar instance={this.props.instance} screen={2}  />
             </div>

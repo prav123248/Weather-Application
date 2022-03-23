@@ -94,7 +94,16 @@ export default class Dynamiccontainer extends Component {
         }
         else {
             return (
-                <Clickablelist trailChanger={this.changeSelectedTrail} selectedTrail={this.state.selectedTrail} addTrail={this.changeAddTrail} />
+                <div id="listManage">
+                    <Clickablelist trailChanger={this.changeSelectedTrail} selectedTrail={this.state.selectedTrail} />
+                    <div class="lowerMessageContainer">
+                        <p class="basicMessage">Click on a trail above to schedule a hike or click the button below to add a new trail</p>
+                    </div>
+                    <div id="switchAddContainer">
+                        <button onClick={this.changeAddTrail} id="switchAddPage" type="button">Add New Trail</button>
+                    </div>
+                </div>
+            
             );
         }
     }

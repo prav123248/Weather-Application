@@ -64,7 +64,7 @@ export default class Screen1 extends Component {
 
         return (
             <div id="screen1" className="container">   
-                <Header />
+                <Header condition={this.props.condition} />
                 <div className="currentContainer">
                     <p id="Location">{latitudeDisplay}, {longitudeDisplay}</p>
                     <p id="temp">{Math.round(this.props.currentData.temperature)}°</p>
@@ -74,7 +74,7 @@ export default class Screen1 extends Component {
                         Wind : {this.props.currentData.windSpeed}m/s
                         <img style={{transform: `rotate(` + this.props.currentData.windDirection + `deg)`}} id="directionLogo" src={direction}/>
                     </p>
-                    <p className="tempstats">{this.props.currentData.message}</p>
+                    <p className="tempstats">{this.props.currentData.message['description']}</p>
                 </div>
 
                 <div className="upcomingContainer">

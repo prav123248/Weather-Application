@@ -27,7 +27,7 @@ export default class Screen3 extends Component {
         if (this.state.trail === "") {
             return (
                 <div class="scheduleDetailContainer">
-                    <p class="scheduleMessage">Select a trail to view details or update the forecast</p>
+                    <p class="basicMessage">Select a trail to view details or update the forecast</p>
                 </div>
             )
         }
@@ -35,7 +35,7 @@ export default class Screen3 extends Component {
             return (
                 <div class="scheduleDetailContainer">
                     <h3>Trail : {this.state.trail}</h3>
-                    <p class="scheduleForecast scheduleMessage">Last Checked : <img src={snow}/></p>
+                    <p class="scheduleForecast">Last Checked : <img src={snow}/></p>
                     <div id="buttonContainer">
                         <button id="updateButton" type="button">Update Forecast</button>
                     </div>
@@ -70,7 +70,7 @@ export default class Screen3 extends Component {
         return (
                 
             <div id="screen3" className="container">   
-                <Header />
+                <Header condition={this.props.condition} />
                 <div class="scheduleContainer">
                     <h2>Trail Schedule</h2>
                     <div class="scheduleTable">

@@ -32,9 +32,6 @@ export default class Clickablelist extends Component {
 
             <div class="titleSection">
                 <h2>Trail List</h2>
-                <div id="listChangeButtons">
-                    <img onClick={this.props.addTrail} class="listIcon addButton" src={add}/>
-                </div>
             </div>
             
             
