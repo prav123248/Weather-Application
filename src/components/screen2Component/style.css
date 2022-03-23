@@ -22,3 +22,104 @@
     justify-content: center;
 }
 
+.trailName {
+    margin-top: 0;
+    margin-left: 3em;
+
+    margin-right: 3em;
+    word-break: break-all
+}
+
+.trailDescription {
+    word-break: break-all;
+    margin-bottom: 1em;
+    margin-left: 1em;
+    flex: 1 1 auto;
+    margin-right: 1em;
+    overflow-y:auto;
+    overflow-x: auto;
+    justify-content: center;
+
+}
+.trailButton {
+    font-size: 0.7em;
+    text-align: center;
+    padding: 0.4em;
+    color: white;
+    border: None; 
+    display: block;
+}
+#removal {
+    align-self:flex-end;
+    margin-right: 1em;
+    background-color: #d60e0e;
+    margin-top: -2em;
+
+}
+
+
+
+#back {
+    margin-left: 1em;
+    align-self: flex-start;
+    background-color: #6ace39;
+    
+}
+
+.scheduleButton {
+    border: None;
+    color: white;
+    background-color:rgb(18, 155, 13);
+    border-radius: 0.5em;
+    padding: 0.4em;
+
+}
+
+
+#schedule {
+    margin-right: 1em;
+}
+
+#check {
+    margin-right: 1em;
+}
+
+.trailPage {
+    flex: 1 1 auto;
+    flex-direction: column;
+    align-self: center;
+
+}
+
+.scheduleHike {
+    align-items: center;
+    margin-top: 10em;
+    margin-bottom: 1em;
+    margin-right: 1em;
+    margin-left: 1em;
+}
+
+.formContainer {
+    display: flex;
+    font-size: 0.8em;
+    flex-direction: row;
+    flex: 1 1 auto;
+}
+
+#trailListContainer {
+    margin-bottom: 20em;
+}
+
+#mapsContainer {
+    flex: 1 1 auto;
+    align-self: center;
+    border: 1px solid black;
+    justify-content: center;
+
+
+}
+
+.leaflet-container {
+    width: 100vw;
+    height: 500px;
+}

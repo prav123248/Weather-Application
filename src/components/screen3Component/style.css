@@ -19,34 +19,9 @@
     margin-left: 1em;  
 }
 
-.addSchedule {
-    margin-top: 8em;
-    margin-bottom: 1em;
-    margin-left: 1em;
-    margin-right: 1em;
-    height: 7em;
-    /*
-    background-color: #6ace39;
-    */
-    flex: 1 1 auto;
 
-}
 
-.addSchedule h3 {
-    font-size: 1em;
-    
-}
 
-.formContainer {
-    display: flex;
-    font-size: 0.8em;
-    flex-direction: row;
-}
-
-.smallPadding {
-    padding: 0.7em;
-
-}
 
 .scheduleSelecter option {
     overflow: auto;
