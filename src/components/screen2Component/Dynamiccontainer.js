@@ -5,6 +5,8 @@ import Clickablelist from './Clickablelist';
 import Scheduler from './Scheduler';
 import Map from './Map'
 
+export var trailSelect;
+
 export default class Dynamiccontainer extends Component {
     constructor(props) {
         super(props);
@@ -14,13 +16,15 @@ export default class Dynamiccontainer extends Component {
             latitude: null,
             longitude: null
         };
+
     }
 
     changeSelectedTrail = (val) => {
         this.setState({
             selectedTrail: val
         });
-    }
+    } 
+
 
     changeAddTrail = () => {
         if (this.state.addTrail === true) {
@@ -47,6 +51,7 @@ export default class Dynamiccontainer extends Component {
     render(){
         
         if (this.state.selectedTrail != "") {
+            trailSelect = this.state.selectedTrail;
             return (
                 <div class="trailPage">
                 <div class="upperScrollContainer">

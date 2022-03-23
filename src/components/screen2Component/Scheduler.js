@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import '../../styles/common.css';
 import './style.css';
 import $ from 'jquery';
+import { saveData } from './saveData';
 
 
 export default class Scheduler extends Component {
@@ -19,10 +20,10 @@ export default class Scheduler extends Component {
                         <button class="scheduleButton" id="check" type="button">Check Upcoming Forecast</button>
 
                         
-                        <input class="calendar" type="date" name="scheduledDate"/>
+                        <input class="calendar" type="date" name="scheduledDate" id="dateSelector"/>
                         
 
-                        <button class="scheduleButton" id="schedule" type="button">Schedule</button>
+                    <button class="scheduleButton" id="schedule" type="button" onClick={saveData}>Schedule</button>
 
                     </div>
 
