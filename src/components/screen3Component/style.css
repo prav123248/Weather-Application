@@ -3,44 +3,89 @@
 
 
 
+.scheduleContainer {
+    height: 12em;
+    margin-bottom: 10em;
+    margin-top: 1em;   
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
 
+}
 
+.scheduleTable {
+    font-size: 0.8em;
+    border-collapse: separate;
+    border-spacing: 0.5em;
+    overflow-y:auto;
+    overflow-x: auto;
+    margin-left: 1em;
+    margin-right: 1em;
+
+}
 
 
 .scheduleName {
     padding-bottom: 0.5em;
-    text-align: start;
+    text-align: center;
 }
 
 .scheduleDate{
     display: inline-block;
     margin-right: 0.8em;
-    text-align: end;
+    text-align: center;
     margin-left: 1em;  
 }
 
-
-
-
-
-.scheduleSelecter option {
-    overflow: auto;
-    max-height: 20px;
+.scheduleForecast {
+    text-align: center;
 }
 
-#scheduleSubmit {
-    color:#67bcff;
-    background-color: #6ace39;
+.scheduleForecast img {
+    width: 1.7em;
+    height: auto;
+    margin-top: 0;
+    margin-bottom: 0;
+}
 
 
-    border: none;
+.scheduleDetailContainer {
+    flex: 1 1 auto;
+    align-self: center;
+    margin-bottom: 1em;
+
+}
+
+.scheduleDetailContainer h3 {
+    font-size: 1.2em;
+    margin-left: 1em;
+    margin-right: 1em;
+
+}
+
+.scheduleMessage {
+    margin-top: -1em;
+    margin-left: 1em;
+    margin-right: 1em;
+    
+}
+
+#buttonContainer {
+    display: flex;
+    flex-direction: column;
+
+}
+
+#updateButton {
+    font-size: 0.8em;
+    border: None;
+    display: block;
     color: white;
-    text-align: center;
-    font-size: 12px;
-    margin: 4px 2px;
-    cursor: pointer;
-  }
+    background-color:rgb(18, 155, 13);
+    border-radius: 0.5em;
+    padding: 0.4em;
+    align-self: center;
 
-
-
+}
 
