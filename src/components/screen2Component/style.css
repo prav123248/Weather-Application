@@ -111,15 +111,20 @@
 }
 
 #mapsContainer {
-    flex: 1 1 auto;
-    align-self: center;
-    border: 1px solid black;
-    justify-content: center;
-
+    width: 100vw;
+    height: auto;
+    display: flex;
 
 }
 
 .leaflet-container {
+
     width: 100vw;
-    height: 500px;
+    border: 1px solid rgb(255, 255, 255);
+    justify-content: center;
+    height: 16em;
+    margin-left:1em;
+    margin-right: 1em;
+    margin-bottom: 4em;
+
 }

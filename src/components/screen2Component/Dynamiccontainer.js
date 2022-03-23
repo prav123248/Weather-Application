@@ -3,18 +3,16 @@ import '../../styles/common.css';
 import './style.css';
 import Clickablelist from './Clickablelist';
 import Scheduler from './Scheduler';
-import {
-    MapContainer, TileLayer, Marker, Popup 
-} from 'react-leaflet';
-
-
+import Map from './Map'
 
 export default class Dynamiccontainer extends Component {
     constructor(props) {
         super(props);
         this.state = {
             selectedTrail : "",
-            addTrail : false
+            addTrail : false,
+            latitude: null,
+            longitude: null
         };
     }
 
@@ -31,24 +29,12 @@ export default class Dynamiccontainer extends Component {
 
     }
 
-    leafletMap = () => {
-
-        return (
-            <MapContainer center={[51.505, -0.09]} zoom={13}>
-                <TileLayer
-                    attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                />
-                <Marker position={[51.505, -0.09]}>
-                    <Popup>
-                        A pretty CSS3 popup. <br /> Easily customizable.
-                    </Popup>
-                </Marker>
-            </MapContainer>
-        )}
-
-
-
+    setCoords = (lat,lng) => {
+        this.setState({
+            latitude: lat,
+            longitude: lng
+        })
+    }
 
     render(){
         
@@ -79,9 +65,9 @@ export default class Dynamiccontainer extends Component {
         else if (this.state.addTrail === true) {
             return (
                 <div class="addTrailPage">
-                    <h2>Select the trail location</h2>
+                    <h3>Select the trail location</h3>
                     <div id="mapsContainer">
-                        {this.leafletMap()}
+                        <Map setCoord={this.setCoords} />
                     </div>
 
                     <div class="addForm">
