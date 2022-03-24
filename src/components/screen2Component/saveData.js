@@ -13,6 +13,9 @@ export const saveSchedule = () => {
     const trailName = trailSelect;
     scheduleDate = document.getElementById('dateSelector').value;
 
+    if (scheduleDate === "") {
+        return
+    }
 
     const today = new Date();
     const scheduledDay = new Date(scheduleDate)
@@ -34,7 +37,7 @@ export const saveSchedule = () => {
                 forecastCall({lat,lng}, daysBetween)
             }
             else {
-                localStorage.setItem(i, JSON.stringify([retrievedData[0], retrievedData[1], retrievedData[2], retrievedData[3], retrievedData[4], scheduleDate]));
+                localStorage.setItem(i, JSON.stringify([retrievedData[0], retrievedData[1], retrievedData[2], retrievedData[3], null, scheduleDate]));
             }
             break
         } 
@@ -67,10 +70,12 @@ export const saveTrail = () => {
         }
 
         var identifier = localStorage.length + 1;
+        
         localStorage.setItem(identifier, JSON.stringify([name, position['lat'], position['lng'], description, null, null]));
         setPosition(null, null)
+
     }
-    console.log(readData());
+    
 }
 
 function forecastCall(scheduledPosition) {

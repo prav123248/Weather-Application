@@ -51,7 +51,9 @@
 .scheduleDetailContainer {
     flex: 1 1 auto;
     align-self: center;
+    margin-top: -1.2em;
     margin-bottom: 1em;
+    width: 20em;
 
 }
 
@@ -68,6 +70,7 @@
     display: flex;
     flex-direction: column;
 
+
 }
 
 #updateButton {
@@ -78,7 +81,24 @@
     background-color:rgb(18, 155, 13);
     border-radius: 0.5em;
     padding: 0.4em;
-    align-self: center;
+    align-self: flex-start;
+    margin-top: -0.5em;
+
+    
+}
+
+#removeSchedule {
+    font-size: 0.8em;
+    border: None;
+    display: block;
+    color: white;
+    background-color:#d60e0e;
+    border-radius: 0.5em;
+    padding: 0.4em;
+    align-self: flex-end;
+    margin-top: -1.9em;
+
+
 
 }
 

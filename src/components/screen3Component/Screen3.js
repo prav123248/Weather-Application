@@ -5,6 +5,7 @@ import Toolbar from '../toolbarComponent/toolbar';
 import './style.css'
 import $ from 'jquery';
 import { readData } from '../screen2Component/readData';
+import { removeHike } from '../screen2Component/removeData';
 
 //Icon imports
 import cloudy from '../../assets/icons/cloudy.png'
@@ -13,6 +14,8 @@ import rain from '../../assets/icons/rain.png'
 import heavy from '../../assets/icons/heavy-rain.png'
 import snow from '../../assets/icons/snow.png'
 import direction from '../../assets/icons/direction.png'
+
+export var hikeSelected;
 
 export default class Screen3 extends Component {
     constructor(props) {
@@ -23,8 +26,14 @@ export default class Screen3 extends Component {
 
     }
 
+    changeHike = () => {
+        this.setState({
+            trail : ""
+        })
+        hikeSelected = ""
+    }
 
-    scheduledDescription = () => {
+    scheduledDescription = (scheduledTrails) => {
         if (this.state.trail === "") {
             return (
                 <div class="scheduleDetailContainer">
@@ -33,12 +42,21 @@ export default class Screen3 extends Component {
             )
         }
         else {
+            hikeSelected = this.state.trail
+            var hikeArray = ""
+            for (var i=0; i<scheduledTrails.length; i++) {
+                if (hikeSelected === scheduledTrails[i][0]) {
+                    hikeArray = scheduledTrails[i]
+                    break
+                }
+            }
             return (
                 <div class="scheduleDetailContainer">
                     <h3>Trail : {this.state.trail}</h3>
-                    <p class="scheduleForecast">Last Checked : <img src={snow}/></p>
+                    <p class="scheduleForecast">Last Checked : {this.conditionIcon(hikeArray[4])}</p>
                     <div id="buttonContainer">
                         <button id="updateButton" type="button">Update Forecast</button>
+                        <button id="removeSchedule" onClick={() => { removeHike(); this.changeHike()}} type="button">Remove Hike</button>
                     </div>
                 </div>
             )
@@ -72,8 +90,8 @@ export default class Screen3 extends Component {
         if (scheduledTrails.length <= 0) {
             return (
                 <div class="scheduleTable">
-                    <p class="nonCapital">No trails have been scheduled. Schedule a trail
-                    by selecting it in the trail list.
+                    <p class="nonCapital">No hikes have been scheduled. Schedule a hike
+                    by selecting a saved trail in the trail list.
                     </p>
                 </div>
             )
@@ -95,7 +113,7 @@ export default class Screen3 extends Component {
                                 <tr class="scheduledRow">
                                     <td class="scheduleDate">{trail[5]}</td>
                                     <td class="scheduleName">{trail[0]}</td>
-                                    {this.conditionIcon(trail[4])}
+                                    <td class="scheduleForecast">{this.conditionIcon(trail[4])}</td>
                                 </tr>
                             ))} 
                             
@@ -112,22 +130,22 @@ export default class Screen3 extends Component {
     conditionIcon = (weather) => {
 
         if (weather === "Thunderstorm") {
-            return <td class="scheduleForecast"><img src={heavy}/></td>
+            return <img src={heavy}/>
         } 
         else if (weather === "Drizzle" || weather === "Rain") {
-            return <td class="scheduleForecast"><img src={rain}/></td>
+            return <img src={rain}/>
         }
         else if (weather === "Snow") {
-            return <td class="scheduleForecast"><img src={snow}/></td>
+            return <img src={snow}/>
         }
         else if (weather === "Clear") {
-            return <td class="scheduleForecast"><img src={sunny}/></td>
+            return <img src={sunny}/>
         }
         else if (weather === "Clouds") {
-            return <td class="scheduleForecast"><img src={cloudy}/></td>
+            return <img src={cloudy}/>
         }
         else {
-            return <td class="scheduleForecast">N/A</td>
+            return "N/A"
         }    
     }
 
@@ -148,12 +166,12 @@ export default class Screen3 extends Component {
             <div id="screen3" className="container">   
                 <Header condition={this.props.condition} />
                 <div class="scheduleContainer">
-                    <h2>Trail Schedule</h2>
+                    <h2>Hike Schedule</h2>
                     {this.displaySchedule(scheduledTrails)}
                     
                 </div>
                 
-                {this.scheduledDescription()}
+                {this.scheduledDescription(scheduledTrails)}
 
 
 

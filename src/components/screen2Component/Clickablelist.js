@@ -38,7 +38,7 @@ export default class Clickablelist extends Component {
                 
                 
                 <div class="scrollableTable" id="trailListContainer">
-                    <p class="trailName nonCapital">No trails to display. Add some using the button below</p>
+                    <p class="nonCapital">No trails to display. Add some using the button below</p>
 
     
                     </div>

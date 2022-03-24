@@ -6,7 +6,7 @@ import Scheduler from './Scheduler';
 import Map from './Map'
 import { saveTrail } from './saveData';
 import { readData } from './readData';
-
+import { removeTrail } from './removeData';
 export var trailSelect;
 export var position;
 
@@ -72,15 +72,15 @@ export default class Dynamiccontainer extends Component {
                         <h2>Trail : {trailSelect}</h2>
                     </div>
                     <div class="trailDescription">
-                        <p>{description}</p>
+                        <p class="nonCapital">{description}</p>
                     </div>
                     
 
                     <button class="trailButton" onClick={() => this.changeSelectedTrail("")} id="back" type="button">Back</button>
-                    <button class="trailButton" id="removal" type="button">Remove trail</button>
+                    <button class="trailButton" id="removal" onClick={() => { removeTrail(); this.changeSelectedTrail("") }} type="button">Remove trail</button>
 
                 </div>
-                <Scheduler />
+                <Scheduler changeTrail={this.changeSelectedTrail}/>
                 </div>
             );
         }
