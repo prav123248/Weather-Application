@@ -12,7 +12,7 @@ export default class App extends Component {
         super(props);
 
         this.state = {
-            selectedScreen : 2,
+            selectedScreen : 1,
             dataLoaded : false,
             loadingMessage : "Loading (Ensure location services are enabled)"
         }
@@ -41,8 +41,20 @@ export default class App extends Component {
     }
 
     apiCall = (position) => {
+        
+        //Current Location Coordinates
         var longitude = position.coords.longitude;
         var latitude =  position.coords.latitude;
+
+        //Rainy Location Coordinates
+        //var longitude = -77.944710;
+        //var latitude =  34.225727;
+
+        //Cloudy Location Coordinates
+        //var longitude = -74;
+        //var latitude =  40.69;
+
+
         this.setState({
             longitude: Math.round(longitude),
             latitude: Math.round(latitude)
