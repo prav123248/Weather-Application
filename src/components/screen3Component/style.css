@@ -15,30 +15,13 @@
 }
 
 .scheduleTable {
-    font-size: 0.8em;
+    font-size: 0.9em;
     border-collapse: separate;
-    border-spacing: 0.5em;
-    overflow-y:auto;
-    overflow-x: auto;
-    margin-left: 1em;
-    margin-right: 1em;
+    border-spacing: 1em;
 
 }
 
 
-.scheduleName {
-    text-align: center;
-}
-
-.scheduleDate{
-    margin-right: 0.8em;
-    text-align: center;
-    margin-left: 1em;  
-}
-
-.scheduleForecast {
-    text-align: center;
-}
 
 .scheduleForecast img {
     width: 1.7em;
