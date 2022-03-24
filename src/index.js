@@ -43,12 +43,12 @@ export default class App extends Component {
     apiCall = (position) => {
         
         //Current Location Coordinates
-        var longitude = position.coords.longitude;
-        var latitude =  position.coords.latitude;
+        //var longitude = position.coords.longitude;
+        //var latitude =  position.coords.latitude;
 
         //Rainy Location Coordinates
-        //var longitude = -77.944710;
-        //var latitude =  34.225727;
+        var longitude = -77.944710;
+        var latitude =  34.225727;
 
         //Cloudy Location Coordinates
         //var longitude = -74;
