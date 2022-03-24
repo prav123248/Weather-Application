@@ -6,6 +6,7 @@ import './style.css'
 import $ from 'jquery';
 import { readData } from '../screen2Component/readData';
 import { removeHike } from '../screen2Component/removeData';
+import Forecastpopup from '../ForecastpopupComponent/Forecastpopup';
 
 //Icon imports
 import cloudy from '../../assets/icons/cloudy.png'
@@ -21,7 +22,8 @@ export default class Screen3 extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            trail: ""
+            trail: "",
+            trigger: false
         }
 
     }
@@ -55,14 +57,31 @@ export default class Screen3 extends Component {
                     <h3>Trail : {this.state.trail}</h3>
                     <p class="scheduleForecast">Last Checked : {this.conditionIcon(hikeArray[4])}</p>
                     <div id="buttonContainer">
-                        <button id="updateButton" type="button">Update Forecast</button>
+                        <button id="updateButton" onClick={this.changeTrigger} type="button">Update Forecast</button>
                         <button id="removeSchedule" onClick={() => { removeHike(); this.changeHike()}} type="button">Remove Hike</button>
                     </div>
+
+                    {this.popup()}
                 </div>
             )
         }
     }
 
+
+    popup = () => {
+        if (this.state.trigger === true) {
+            return <Forecastpopup title="Forecasted Weather" trail={this.state.trail} screen={3}  />
+        }        
+    }
+
+    changeTrigger = () => {
+        if (this.state.trigger === true) {
+            this.setState({trigger: false})
+        }
+        else {
+            this.setState({trigger: true})
+        }
+    }
 
     scheduleOnClick = () => {
         const self = this;
@@ -76,7 +95,8 @@ export default class Screen3 extends Component {
 
     changeTrail = (selectedTrail) => {
         this.setState({
-            trail:selectedTrail
+            trail:selectedTrail,
+            trigger: false
         })
     }
 

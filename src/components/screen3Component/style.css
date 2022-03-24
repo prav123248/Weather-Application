@@ -18,10 +18,14 @@
     font-size: 0.9em;
     border-collapse: separate;
     border-spacing: 1em;
+    margin-left: 1em;
+    margin-right: 1em;
 
 }
 
-
+.scheduleName {
+    padding-right: 1.2em;
+}
 
 .scheduleForecast img {
     width: 1.7em;

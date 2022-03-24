@@ -5,6 +5,7 @@ import $ from 'jquery';
 import './Forecastpopup.css'
 
 var correctData;
+var key;
 
 export default class Forecastpopup extends Component {
     constructor(props) {
@@ -27,8 +28,6 @@ export default class Forecastpopup extends Component {
             dataType: "jsonp",
             success : (parsed) => {
                 this.setState({upcomingForecast:parsed})
-                console.log(parsed)
-                console.log(this.state.upcomingForecast)
             },
             error : console.log("API failed")
         })
@@ -75,21 +74,21 @@ export default class Forecastpopup extends Component {
 
 
     formattedForecast = () => {
+        if (this.state.upcomingForecast === null) {
+            return (
+                <div className="popupContent">
+                    <p>Finding forecast</p>
+                </div>
+            )
+        }
 
         if (this.props.screen === 2) {
-            
-            if (this.state.upcomingForecast === null) {
-                    return (
-                        <div className="popupContent">
-                            <p>Finding forecast</p>
-                        </div>
-                    )
-            }
-            else {
-                var today = new Date()
-                var data = this.state.upcomingForecast
 
-                return (
+
+            var today = new Date()
+            var data = this.state.upcomingForecast
+
+            return (
                 <div className="popupContent">
                     <p class="nonCapital">Recommended hike days are coloured green. Days to avoid are in red and average days in yellow.</p>
                     <table>
@@ -102,49 +101,49 @@ export default class Forecastpopup extends Component {
                             </tr>
 
                             <tr>
-                                <td style={this.analyseDay(data['daily'][1])}>{this.dayFormat(today,1)}</td>
+                                <td style={this.analyseDay(data['daily'][1])}>{this.dayFormat(today, 1)}</td>
                                 <td>{data['daily'][1]['weather'][0]['main']}</td>
                                 <td>{data['daily'][1]['humidity']}%</td>
                                 <td>{Math.round(data['daily'][1]['temp']['min'])}|{Math.round(data['daily'][1]['temp']['max'])}</td>
                             </tr>
 
                             <tr>
-                                <td style={this.analyseDay(data['daily'][2])}>{this.dayFormat(today,2)}</td>
+                                <td style={this.analyseDay(data['daily'][2])}>{this.dayFormat(today, 2)}</td>
                                 <td>{data['daily'][2]['weather'][0]['main']}</td>
                                 <td>{data['daily'][2]['humidity']}%</td>
                                 <td>{Math.round(data['daily'][2]['temp']['min'])}|{Math.round(data['daily'][2]['temp']['max'])}</td>
                             </tr>
 
                             <tr>
-                                <td style={this.analyseDay(data['daily'][3])}>{this.dayFormat(today,3)}</td>
+                                <td style={this.analyseDay(data['daily'][3])}>{this.dayFormat(today, 3)}</td>
                                 <td>{data['daily'][3]['weather'][0]['main']}</td>
                                 <td>{data['daily'][3]['humidity']}%</td>
                                 <td>{Math.round(data['daily'][3]['temp']['min'])}|{Math.round(data['daily'][3]['temp']['max'])}</td>
                             </tr>
 
                             <tr>
-                                <td style={this.analyseDay(data['daily'][4])}>{this.dayFormat(today,4)}</td>
+                                <td style={this.analyseDay(data['daily'][4])}>{this.dayFormat(today, 4)}</td>
                                 <td>{data['daily'][4]['weather'][0]['main']}</td>
                                 <td>{data['daily'][4]['humidity']}%</td>
                                 <td>{Math.round(data['daily'][4]['temp']['min'])}|{Math.round(data['daily'][4]['temp']['max'])}</td>
                             </tr>
 
                             <tr>
-                                <td style={this.analyseDay(data['daily'][5])}>{this.dayFormat(today,5)}</td>
+                                <td style={this.analyseDay(data['daily'][5])}>{this.dayFormat(today, 5)}</td>
                                 <td>{data['daily'][5]['weather'][0]['main']}</td>
                                 <td>{data['daily'][5]['humidity']}%</td>
                                 <td>{Math.round(data['daily'][5]['temp']['min'])}|{Math.round(data['daily'][5]['temp']['max'])}</td>
                             </tr>
 
                             <tr>
-                                <td style={this.analyseDay(data['daily'][6])}>{this.dayFormat(today,6)}</td>
+                                <td style={this.analyseDay(data['daily'][6])}>{this.dayFormat(today, 6)}</td>
                                 <td>{data['daily'][6]['weather'][0]['main']}</td>
                                 <td>{data['daily'][6]['humidity']}%</td>
                                 <td>{Math.round(data['daily'][6]['temp']['min'])}|{Math.round(data['daily'][6]['temp']['max'])}</td>
                             </tr>
 
                             <tr>
-                                <td style={this.analyseDay(data['daily'][7])}>{this.dayFormat(today,7)}</td>
+                                <td style={this.analyseDay(data['daily'][7])}>{this.dayFormat(today, 7)}</td>
                                 <td>{data['daily'][7]['weather'][0]['main']}</td>
                                 <td>{data['daily'][7]['humidity']}%</td>
                                 <td>{Math.round(data['daily'][7]['temp']['min'])}|{Math.round(data['daily'][7]['temp']['max'])}</td>
@@ -155,9 +154,51 @@ export default class Forecastpopup extends Component {
 
 
 
-                </div> 
-                )   
+                </div>
+            )
+
+        }
+
+        else {
+            const today = new Date();
+            const scheduledDate = new Date(correctData[5])
+            const day = 24 * 60 * 60 * 1000;
+            var daysBetween = Math.round((scheduledDate.getTime() - today.getTime())/day) 
+
+
+            if (daysBetween > 7) {
+
+                return (
+                    <div className="popupContent">
+                        <p class="nonCapital">Weather for this hike cannot be forecasted as it is more than a week away. Please try again later.</p>
+                    </div>
+                )
             }
+            else {
+                var obtainedDataConditions = this.state.upcomingForecast['daily'][daysBetween]
+                var foundCondition = obtainedDataConditions['weather'][0]['main']
+                if (correctData[4] !== foundCondition) {
+                    localStorage.setItem(key, JSON.stringify([correctData[0], correctData[1], correctData[2], correctData[3], foundCondition, correctData[4]]));
+                }
+
+                return (
+                    <div className="popupContent">
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <th>Condition : {correctData[4]}</th>
+                                    <th>Humidity : {obtainedDataConditions['humidity']}</th>
+                                    <th>Wind Speed {obtainedDataConditions['wind_speed']}</th>
+                                    <th>Min|Max Temperature° : {Math.round(obtainedDataConditions['temp']['min'])}|{Math.round(obtainedDataConditions['temp']['max'])}</th>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                )
+
+            }
+
+        }
         
         /**else {
             //const today = new Date();
@@ -182,18 +223,31 @@ export default class Forecastpopup extends Component {
 
         }
         */
-    }
+    
     };
 
     componentDidMount() {
         var trails = readData()
+        var selectedhike;
+        
+        if (this.props.screen === 2) {
+            selectedhike = trailSelect
+        }
+        else {
+            selectedhike = this.props.trail
+        }
+    
         for (var i=0; i<trails.length; i++) {
-            if (trails[i][0] === trailSelect) {
+            if (trails[i][0] === selectedhike) {
                 correctData = trails[i]
-                this.forecastData();
-
+                key = i
+                break
             }
         }
+        
+        this.forecastData();
+            
+        
     }
 
     render(){

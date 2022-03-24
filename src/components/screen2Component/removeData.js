@@ -23,9 +23,7 @@ export const removeHike = () => {
     for (var i = 1; i < localStorage.length + 1; i++) {
         var retrievedData = JSON.parse(localStorage.getItem(i));
         
-        console.log("tried")
         if (retrievedData[0] == trailName) {
-            console.log("here")
             localStorage.setItem(i, JSON.stringify([retrievedData[0], retrievedData[1], retrievedData[2], retrievedData[3], null, null]));
             break
         } 
