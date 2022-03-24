@@ -6,6 +6,7 @@ import {
 } from 'react-leaflet';
 import L from 'leaflet';
 import pin from '../../assets/icons/pin.png'
+import { setPosition } from './Dynamiccontainer';
 
 export default function Map() {
     function MarkerOnClick() {
@@ -13,6 +14,7 @@ export default function Map() {
         const map = useMapEvents({
             click: (e) => {
                 const {lat, lng} = e.latlng;
+                setPosition(lat, lng)
                 if (marker == undefined) {
                     marker = L.marker([lat, lng], {pin}).addTo(map);
                 }

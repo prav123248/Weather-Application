@@ -4,17 +4,22 @@ import './style.css';
 import Clickablelist from './Clickablelist';
 import Scheduler from './Scheduler';
 import Map from './Map'
+import { saveTrail } from './saveData';
 
 export var trailSelect;
+export var position;
+
+export let setPosition = (lat,lng) => {
+    position = {lat, lng};
+
+}
 
 export default class Dynamiccontainer extends Component {
     constructor(props) {
         super(props);
         this.state = {
             selectedTrail : "",
-            addTrail : false,
-            latitude: null,
-            longitude: null
+            addTrail : false
         };
 
     }
@@ -41,13 +46,6 @@ export default class Dynamiccontainer extends Component {
 
     }
 
-    setCoords = (lat,lng) => {
-        this.setState({
-            latitude: lat,
-            longitude: lng
-        })
-    }
-
     render(){
         
         if (this.state.selectedTrail != "") {
@@ -56,7 +54,7 @@ export default class Dynamiccontainer extends Component {
                 <div class="trailPage">
                 <div class="upperScrollContainer">
                     <div class="titleSection">
-                        <h2>Trail : {this.state.selectedTrail}</h2>
+                        <h2>Trail : {trailSelect}</h2>
                     </div>
                     <div class="trailDescription">
                         <p>
@@ -71,7 +69,7 @@ export default class Dynamiccontainer extends Component {
                     <button class="trailButton" id="removal" type="button">Remove trail</button>
 
                 </div>
-                <Scheduler />
+                <Scheduler forecast={this.props.forecast} />
                 </div>
             );
         }
@@ -87,7 +85,7 @@ export default class Dynamiccontainer extends Component {
                         <input id="nameInput" type="text" placeholder="Trail Name"></input>
                         <textarea id="descriptionInput" name="description" placeholder="Description"></textarea>
                     
-                        <button class="addTrailButton" id="add" type="button">Add</button>
+                        <button class="addTrailButton" id="add" onClick={saveTrail} type="button">Add</button>
                         <button class="addTrailButton" id="cancel" onClick={this.changeAddTrail} type="button">Cancel</button>
                     </div>
 
