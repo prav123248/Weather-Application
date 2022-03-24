@@ -69,7 +69,7 @@ export default class Dynamiccontainer extends Component {
                     <button class="trailButton" id="removal" type="button">Remove trail</button>
 
                 </div>
-                <Scheduler forecast={this.props.forecast} />
+                <Scheduler />
                 </div>
             );
         }

@@ -1,11 +1,8 @@
 import React, {Component} from 'react';
 import '../../styles/common.css';
-import Header from '../headerComponent/header';
-import Toolbar from '../toolbarComponent/toolbar';
 import './style.css';
-import add from '../../assets/icons/add.png';
-import subtract from '../../assets/icons/minus.png';
 import $ from 'jquery';
+import { readData } from './readData';
 
 export default class Clickablelist extends Component {
     constructor(props) {
@@ -26,41 +23,46 @@ export default class Clickablelist extends Component {
         
     }
 
+
+
     render(){
-        return (
-            <div class="upperScrollContainer">
+        var trailList = readData();
 
-            <div class="titleSection">
-                <h2>Trail List</h2>
-            </div>
-            
-            
-            <div class="scrollableTable" id="trailListContainer">
-                <p class="trailName">Harrow</p>
-                <p class="trailName">Harrow</p>
-                <p class="trailName">Harrow</p>
-                <p class="trailName">Harrow</p>
-                <p class="trailName">Harrow</p>
-                <p class="trailName">Harrow</p>
-                <p class="trailName">Harrow</p>
-                <p class="trailName">Harrow</p>
-                <p class="trailName">Harrow</p>
-                <p class="trailName">Harrow</p>
-                <p class="trailName">Harrow</p>
-                <p class="trailName">Harrow</p>
-                <p class="trailName">Harrow</p>
-                <p class="trailName">Harrow</p>
-                <p class="trailName">Harrow</p>
-                <p class="trailName">Harrow</p>
-                <p class="trailName">Harrow</p>
-                <p class="trailName">Harrow</p>
-                <p class="trailName">Harrow</p>
-                <p class="trailName">Harrow</p>
-
+        if (trailList.length <= 0) {
+            return (
+                <div class="upperScrollContainer">
+    
+                <div class="titleSection">
+                    <h2>Trail List</h2>
                 </div>
-            </div>
- 
-            
-        );
+                
+                
+                <div class="scrollableTable" id="trailListContainer">
+                    <p class="trailName nonCapital">No trails to display. Add some using the button below</p>
+
+    
+                    </div>
+                </div>      
+            );            
+        }
+        else {
+            return (
+                <div class="upperScrollContainer">
+    
+                <div class="titleSection">
+                    <h2>Trail List</h2>
+                </div>
+                
+                
+                <div class="scrollableTable" id="trailListContainer">
+                    {trailList.map((trail) => (
+                        <p class="trailName">{trail[0]}</p>
+                    ))}
+    
+                    </div>
+                </div>                
+            );
+        }
+
     }
 }

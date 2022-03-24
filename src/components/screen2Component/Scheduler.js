@@ -22,7 +22,7 @@ export default class Scheduler extends Component {
                         <input class="calendar" type="date" name="scheduledDate" id="dateSelector"/>
                         
 
-                    <button class="scheduleButton" id="schedule" type="button" onClick={this.props.forecast(0.0,50.0)}>Schedule</button>
+                    <button class="scheduleButton" id="schedule" type="button" onClick={saveSchedule}>Schedule</button>
 
                     </div>
 

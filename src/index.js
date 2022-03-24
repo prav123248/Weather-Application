@@ -7,8 +7,6 @@ import Loading from './components/loadingComponent/Loading';
 import './styles/common.css';
 import $ from 'jquery';
 
-export var forecast;
-
 export default class App extends Component {
     constructor(props) {
         super(props);
@@ -21,29 +19,6 @@ export default class App extends Component {
 
     };
         
-    forecastCall = (scheduledPosition) => {
-
-        var longitude = scheduledPosition['lng']
-        var latitude =  scheduledPosition['lat']
-        
-        const units = "metric";
-        const API_KEY = "65159ed447f6c9057beb2bf1aa2bcd61";
-        
-        var url = 'https://api.openweathermap.org/data/2.5/onecall?lat=' + 51.567035 + '&lon=' + 0.3657027 + '&units=' + units + '&exclude=minutely,hourly,alerts&appid=' + API_KEY;
-       
-        $.ajax({
-            url: url,
-            dataType: "jsonp",
-            success : this.parseForecast,
-            error : console.log("API failed")
-        })
-    }
-
-    parseForecast = (parsed) => {
-        console.log("reached");
-        forecast = parsed
-    }
-
     screenSwitch(val) {
         this.setState({
             selectedScreen : val
@@ -113,7 +88,7 @@ export default class App extends Component {
             return (<Screen3 instance={this} condition={this.state.currentData['message']['main']} />)
         }
         else if (this.state.selectedScreen === 2) {
-            return (<Screen2 instance={this} data={this.state.data} condition={this.state.currentData['message']['main']} forecast={this.forecastCall} />)
+            return (<Screen2 instance={this} data={this.state.data} condition={this.state.currentData['message']['main']} />)
             }
         else {
             return (<Screen1 instance={this} currentData={this.state.currentData} upcomingData={this.state.upcomingData} long={this.state.longitude} lat={this.state.latitude} condition={this.state.currentData['message']['main']} />)

@@ -4,6 +4,7 @@ import Header from '../headerComponent/header';
 import Toolbar from '../toolbarComponent/toolbar';
 import './style.css'
 import $ from 'jquery';
+import { readData } from '../screen2Component/readData';
 
 //Icon imports
 import cloudy from '../../assets/icons/cloudy.png'
@@ -66,84 +67,68 @@ export default class Screen3 extends Component {
         
     }
 
+    displaySchedule = (scheduledTrails) => {
+
+        if (scheduledTrails.length <= 0) {
+            return (
+                <div class="scheduleTable">
+                    <p class="nonCapital">No trails have been scheduled. Schedule a trail
+                    by selecting it in the trail list.
+                    </p>
+                </div>
+            )
+        }
+        else {
+
+            return (
+                <div class="scheduleTable">
+                    <table>
+                        <tbody>
+                            <tr class="scheduledRow">
+                                <th class="scheduleDate">Date</th>
+                                <th class="scheduleName">Trail Name</th>
+                                <th class="scheduleForecast">Forecast</th>
+                            </tr>
+
+                            
+                            {scheduledTrails.map((trail) => (
+                                <tr class="scheduledRow">
+                                    <td class="scheduleDate">{trail[5]}</td>
+                                    <td class="scheduleName">{trail[0]}</td>
+                                    <td class="scheduleForecast">{trail[4]}</td>
+                                </tr>
+                            ))} 
+                            
+
+
+                        </tbody>
+                    </table>
+                </div>
+
+            )
+        }
+    }
+
     render(){
+
+
+        var trailList = readData()
+        var scheduledTrails = []
+
+        for (var i=0; i<trailList.length; i++) {
+            if (trailList[i][5] !== null) {
+                scheduledTrails.push(trailList[i])
+            }
+        }
+
         return (
                 
             <div id="screen3" className="container">   
                 <Header condition={this.props.condition} />
                 <div class="scheduleContainer">
                     <h2>Trail Schedule</h2>
-                    <div class="scheduleTable">
-                        <table>
-                            <tbody>
-                                <tr class="scheduledRow">
-                                    <th class="scheduleDate">Date</th>
-                                    <th class="scheduleName">Trail Name</th>
-                                    <th class="scheduleForecast">Forecast</th>
-                                </tr>
-
-                                <tr class="scheduledRow">
-                                    <td class="scheduleDate">23/01/21</td>
-                                    <td class="scheduleName">Harrow</td>
-                                    <td class="scheduleForecast"><img src={snow}/></td>
-                                </tr>   
-
-                                <tr class="scheduledRow">
-                                    <td class="scheduleDate">23/01/21</td>
-                                    <td class="scheduleName">Harrow</td>
-                                    <td class="scheduleForecast"><img src={snow}/></td>
-                                </tr>   
-                                <tr class="scheduledRow">
-                                    <td class="scheduleDate">23/01/21</td>
-                                    <td class="scheduleName">Britain and some other land </td>
-                                    <td class="scheduleForecast"><img src={snow}/></td>
-                                </tr>   
-
-                                <tr class="scheduledRow">
-                                    <td class="scheduleDate">23/01/21</td>
-                                    <td class="scheduleName">asdasdadausdh aushd asu hdasduiash duas daisu daihd asihd isuhd asuihdaishdiaushdisaBritain and some other land </td>
-                                    <td class="scheduleForecast"><img src={snow}/></td>
-                                </tr> 
-
-                                <tr class="scheduledRow">
-                                    <td class="scheduleDate">23/01/21</td>
-                                    <td class="scheduleName">Britain and some other land </td>
-                                    <td class="scheduleForecast"><img src={snow}/></td>
-                                </tr>   
-
-                                <tr class="scheduledRow">
-                                    <td class="scheduleDate">23/01/21</td>
-                                    <td class="scheduleName">Britain and some other land </td>
-                                    <td class="scheduleForecast"><img src={snow}/></td>
-                                </tr>   
-
-                                <tr class="scheduledRow">
-                                    <td class="scheduleDate">23/01/21</td>
-                                    <td class="scheduleName">Britain and some other land </td>
-                                    <td class="scheduleForecast"><img src={snow}/></td>
-                                </tr>   
-
-                                <tr class="scheduledRow">
-                                    <td class="scheduleDate">23/01/21</td>
-                                    <td class="scheduleName">Britain and some other land </td>
-                                    <td class="scheduleForecast"><img src={snow}/></td>
-                                </tr>   
-
-                                <tr class="scheduledRow">
-                                    <td class="scheduleDate">23/01/21</td>
-                                    <td class="scheduleName">Britain and some other land </td>
-                                    <td class="scheduleForecast"><img src={snow}/></td>
-                                </tr>   
-
-                                <tr class="scheduledRow">
-                                    <td class="scheduleDate">23/01/21</td>
-                                    <td class="scheduleName">Britain and some other land </td>
-                                    <td class="scheduleForecast"><img src={sunny}/></td>
-                                </tr>   
-                            </tbody>
-                        </table>
-
-                    </div>
+                    {this.displaySchedule(scheduledTrails)}
+                    
                 </div>
                 
                 {this.scheduledDescription()}

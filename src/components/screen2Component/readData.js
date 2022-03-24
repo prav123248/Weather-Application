@@ -6,9 +6,7 @@ export const readData = () => {
         readDataArray.push(retrievedData);
         
     }
-    console.log(readDataArray);
     return readDataArray
 
 
 }
-
