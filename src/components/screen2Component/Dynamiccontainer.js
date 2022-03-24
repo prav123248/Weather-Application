@@ -5,11 +5,16 @@ import Clickablelist from './Clickablelist';
 import Scheduler from './Scheduler';
 import Map from './Map'
 import { saveTrail } from './saveData';
+import { readData } from './readData';
 
 export var trailSelect;
 export var position;
 
 export let setPosition = (lat,lng) => {
+    if (lat === null) {
+        position = undefined
+        return
+    }
     position = {lat, lng};
 
 }
@@ -50,6 +55,16 @@ export default class Dynamiccontainer extends Component {
         
         if (this.state.selectedTrail != "") {
             trailSelect = this.state.selectedTrail;
+            var trailList = readData()
+            var description = "No description exists for this trail"
+            for (var i=0; i<trailList.length; i++) {
+                if (trailList[i][0] === trailSelect) {
+                    if (trailList[i][3] !== "") {
+                        description = trailList[i][3]
+                    }
+                    break
+                }
+            }
             return (
                 <div class="trailPage">
                 <div class="upperScrollContainer">
@@ -57,11 +72,7 @@ export default class Dynamiccontainer extends Component {
                         <h2>Trail : {trailSelect}</h2>
                     </div>
                     <div class="trailDescription">
-                        <p>
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's                     hen an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into e
-                        lectronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages
-                        , and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum
-                        </p>
+                        <p>{description}</p>
                     </div>
                     
 
@@ -82,10 +93,10 @@ export default class Dynamiccontainer extends Component {
                     </div>
 
                     <div class="addForm">
-                        <input id="nameInput" type="text" placeholder="Trail Name"></input>
+                        <input id="nameInput" minLength="1" maxLength="20" type="text" placeholder="Trail Name"></input>
                         <textarea id="descriptionInput" name="description" placeholder="Description"></textarea>
                     
-                        <button class="addTrailButton" id="add" onClick={saveTrail} type="button">Add</button>
+                        <button class="addTrailButton" id="add" onClick={() => { saveTrail(); this.changeAddTrail()}} type="button">Add</button>
                         <button class="addTrailButton" id="cancel" onClick={this.changeAddTrail} type="button">Cancel</button>
                     </div>
 

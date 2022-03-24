@@ -1,5 +1,5 @@
 import { readData } from './readData';
-import { trailSelect, position } from './Dynamiccontainer';
+import { trailSelect, position, setPosition } from './Dynamiccontainer';
 import $ from 'jquery';
 
 var forecast;
@@ -54,10 +54,23 @@ export const saveSchedule = () => {
 
 export const saveTrail = () => {
     const name = document.getElementById('nameInput').value;
-    const description = document.getElementById('descriptionInput').value;
-    var key = localStorage.length + 1;
-    localStorage.setItem(key, JSON.stringify([name, position['lat'], position['lng'], description, null, null]));
-    readData();
+    if (position === undefined || name === "") {
+        return
+    }
+    else {
+        const description = document.getElementById('descriptionInput').value;
+        var trailList = readData()
+        for (var i=0; i<trailList.length; i++) {
+            if (trailList[i][0] === name) {
+                return
+            }           
+        }
+
+        var identifier = localStorage.length + 1;
+        localStorage.setItem(identifier, JSON.stringify([name, position['lat'], position['lng'], description, null, null]));
+        setPosition(null, null)
+    }
+    console.log(readData());
 }
 
 function forecastCall(scheduledPosition) {

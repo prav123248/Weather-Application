@@ -95,7 +95,7 @@ export default class Screen3 extends Component {
                                 <tr class="scheduledRow">
                                     <td class="scheduleDate">{trail[5]}</td>
                                     <td class="scheduleName">{trail[0]}</td>
-                                    <td class="scheduleForecast">{trail[4]}</td>
+                                    {this.conditionIcon(trail[4])}
                                 </tr>
                             ))} 
                             
@@ -107,6 +107,28 @@ export default class Screen3 extends Component {
 
             )
         }
+    }
+
+    conditionIcon = (weather) => {
+
+        if (weather === "Thunderstorm") {
+            return <td class="scheduleForecast"><img src={heavy}/></td>
+        } 
+        else if (weather === "Drizzle" || weather === "Rain") {
+            return <td class="scheduleForecast"><img src={rain}/></td>
+        }
+        else if (weather === "Snow") {
+            return <td class="scheduleForecast"><img src={snow}/></td>
+        }
+        else if (weather === "Clear") {
+            return <td class="scheduleForecast"><img src={sunny}/></td>
+        }
+        else if (weather === "Clouds") {
+            return <td class="scheduleForecast"><img src={cloudy}/></td>
+        }
+        else {
+            return <td class="scheduleForecast">N/A</td>
+        }    
     }
 
     render(){
