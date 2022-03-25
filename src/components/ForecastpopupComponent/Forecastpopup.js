@@ -187,8 +187,8 @@ export default class Forecastpopup extends Component {
                             <tbody>
                                 <tr>
                                     <th class="biggerLighter">Condition : {correctData[4]}</th>
-                                    <th class="biggerLighter">Humidity : {obtainedDataConditions['humidity']}</th>
-                                    <th class="biggerLighter">Wind Speed {obtainedDataConditions['wind_speed']}</th>
+                                    <th class="biggerLighter">Humidity : {obtainedDataConditions['humidity']}%</th>
+                                    <th class="nonCapital biggerLighter">Wind Speed {obtainedDataConditions['wind_speed']}m/s</th>
                                     <th class="biggerLighter">Min|Max Temperature° : {Math.round(obtainedDataConditions['temp']['min'])}|{Math.round(obtainedDataConditions['temp']['max'])}</th>
                                 </tr>
                             </tbody>
