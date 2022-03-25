@@ -9,6 +9,19 @@ export default class Toolbar extends Component {
         super(props);
     }
 
+   /* 
+    * @author <Pravin Prabhakaran> <ec20352@qmul.ac.uk> | <200272454>
+    *
+    * The render method uses the passed prop screen to determine the opacity of three values, each representing the opacity of a respective screens icon. These are then displayed.
+    * 
+    * The opacity for each screen is initally set to 1. A passed prop will distinguish which screen the toolbar component is being used in and that alters the opacity level
+    * of two variabes. Whichever screen is selected, the remaining two will have their opacity decreased. The render method will then return a div containing image tags for each 
+    * icon of the taskbar. When one of the images are clicked, the screenSwitch method in the main index.js file is called to alter the screen to the specified value.
+    * 
+    * @param  ()  
+    * @return (Object JSX HTML)
+    */
+
     render(){
         var opacity1 = 1;
         var opacity2 = 1;

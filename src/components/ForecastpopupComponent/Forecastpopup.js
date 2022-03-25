@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import { trailSelect} from '../screen2Component/Dynamiccontainer';
-import { readData } from '../screen2Component/readData';
+import { trailSelect} from '../screen2Components/Dynamiccontainer';
+import { readData } from '../readData';
 import $ from 'jquery';
 import './Forecastpopup.css'
 
@@ -15,6 +15,17 @@ export default class Forecastpopup extends Component {
         }
     }
 
+    /* 
+    * @author <Pravin Prabhakaran> <ec20352@qmul.ac.uk> | <200272454>
+    *
+    * Makes an API call to get and set upcoming weather data to be used by the popup.
+    * 
+    * The latitude and longitude are determined from a global variable containing the record of the saved trail. 
+    * The API call on success will set the parsed contents to a state variable. On an error, a message is outputted to the console.
+    * 
+    * @param   
+    * @return 
+    */
 
     forecastData = () => {
 
@@ -33,6 +44,19 @@ export default class Forecastpopup extends Component {
         })
     }
     
+    /* 
+    * @author <Pravin Prabhakaran> <ec20352@qmul.ac.uk> | <200272454>
+    *
+    * Accepts a day and a value to return a correctly formatted version of value days after the given day.
+    * 
+    * The date variable is a given date. Num is how many days after the given date the method should return. The correct day obtains the time of the given date
+    * and finds the time with the num * (total time for a day). This provides correctday in a Date type which has methods such as getMonth() that assist in formatting.
+    * The month, day and year are extracted from the date type. A "0" is added to the start of months and days which are not two digits. These are then joined together and returned.
+    * 
+    * @param  (Date  date, Integer num)  
+    * @return (String [day,month,year].join("/")
+    */
+
     dayFormat = (date,num) => {
         var correctday = new Date(date.getTime() + ((24 * 60 * 60 * 1000) * num))
         var month = "" + (correctday.getMonth() + 1)
@@ -48,11 +72,25 @@ export default class Forecastpopup extends Component {
         return [day,month,year].join("/")
     }
 
+    /* 
+    * @author <Pravin Prabhakaran> <ec20352@qmul.ac.uk> | <200272454>
+    *
+    * Acts as a recommendation algorithm that returns a styling depending on the type of weather condition passed to it. 
+    * 
+    * A dayForecast is a string summarising the condition on a specific day. All possible bad and good conditions are stored in respective arrays.
+    * If statements use the include method to check if the passed condition is present and this determines which colour will be returned from the method.
+    * The first if statement returns red if bad conditions occur, the second makes additional checks even if good conditions are found before green is returned.
+    * 
+    * @param  (String dayForecast)  
+    * @return (Object {color: yellow}) or (Object {color:#61ff13}) or (Object {color:#be0303})
+    */
 
     analyseDay = (dayForecast) => {
         var badConditions = ["Thunderstorm", "Rain", "Snow", "Dust", "Fog", "Ash", "Tornado", "Squall", "Sand", "Haze"]
         var goodConditions = ["Clear", "Clouds"]
+        
         if (badConditions.includes(dayForecast['weather'][0]['main'])) {
+
             return {color:"#be0303"}
         }
         else if (goodConditions.includes(dayForecast['weather'][0]['main'])) {
@@ -72,6 +110,18 @@ export default class Forecastpopup extends Component {
         }
     }
 
+   /* 
+    * @author <Pravin Prabhakaran> <ec20352@qmul.ac.uk> | <200272454>
+    *
+    * Returns specific HTML depending on certain conditions such as whether the API call has finished or which screen is currently on.
+    * 
+    * The first if statement checks a state variable that will not be null if the API call has succeeded since the parsed content is saved into it.
+    * The following if statements differentiate between the screen using the forecast popup to apply specific HTML for that specific screen.
+    * Screen 2 obtains the date and creates 7 rows in a table that display a day in the week of the API data. Screen 3 finds a specific upcoming forecast, and then saves and displays it.
+    * 
+    * @param  ()  
+    * @return (Object JSX HTML) or (Object JSX HTML) or (Object JSX HTML)
+    */
 
     formattedForecast = () => {
         if (this.state.upcomingForecast === null) {
@@ -199,32 +249,21 @@ export default class Forecastpopup extends Component {
             }
 
         }
-        
-        /**else {
-            //const today = new Date();
-            //const scheduledDay = new Date(scheduleDate)
-            //const day = 24 * 60 * 60 * 1000;
-            //daysBetween = Math.round((scheduledDay.getTime() - today.getTime())/day) 
-            var daysBetween = 3
-            if (daysBetween < 7) {
-              return (
-                    <div className="popupContent">
-                        <p></p>
-                    </div>
-                )
-            }
-            else {
-                return (
-                    <div className="popupContent">
-                        <p>Weather for this hike cannot be forecasted as it is more than a week away. Please try again soon. </p>
-                    </div>
-                )
-            }
-
-        }
-        */
-    
+            
     };
+
+   /* 
+    * @author <Pravin Prabhakaran> <ec20352@qmul.ac.uk> | <200272454>
+    *
+    * Once the first screen has been rendered, the record of the selected trail is found and globally stored. Then, an API call is made.
+    * 
+    * All stored trail data is obtained with the read command. The way the name of the selected hike is stored differs depending on the screen so an if statement stores each variant
+    * in a common variable. A for loop iterates through the stored trails and finds a trail that matches the selected hike. The found record and its key are stored in a global variable.
+    * An API call is then made which will make use of this data when finding the longitude and latitude coordinates.
+    * 
+    * @param  ()  
+    * @return ()
+    */
 
     componentDidMount() {
         var trails = readData()
@@ -249,6 +288,19 @@ export default class Forecastpopup extends Component {
             
         
     }
+
+   /* 
+    * @author <Pravin Prabhakaran> <ec20352@qmul.ac.uk> | <200272454>
+    *
+    * The render method displays the title passed as a prop and calls a method to dynamically determine what to display below.
+    * 
+    * The title stored in a prop named title is displayed in a h4 tag. The formattedForecast method will provide the remaining content which changes depending on factors such as
+    * the progress of the API call and which screens are implementing this component.
+    * 
+    * 
+    * @param  ()  
+    * @return (Object JSX HTML)
+    */
 
     render(){
         return (

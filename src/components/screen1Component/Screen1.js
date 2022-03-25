@@ -17,7 +17,19 @@ export default class Screen1 extends Component {
         super(props);
     }
 
-
+   /* 
+    * @author <Pravin Prabhakaran> <ec20352@qmul.ac.uk> | <200272454>
+    *
+    * 
+    * Before returning, this component first extracts specific elements from the API data that was passed to it as a prop. It will then insert this correctly into the HTML.
+    * 
+    * The for loop goes through the 7 day forecast in the API data and based on the condition, adds an imported image to an array. The next part formats the latitude and longitude
+    * that was passed as props. For the HTML returned before the table, most data is accessed directly from the prop or the data formatted before. In the second half, the first row
+    * of the table finds the correct next day weekday by obtaining the current day and using a modulus of 7. The remaining half accesses data such as from the array of images initially created.
+    * 
+    * @param  ()  
+    * @return (Object JSX HTML)
+    */
 
     render(){
         const weekdays = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"]

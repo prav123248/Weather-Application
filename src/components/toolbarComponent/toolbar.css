@@ -1,7 +1,4 @@
 
-
-
-
 .toolbar {
     flex-grow: 1;
     justify-content: center;
@@ -16,12 +13,5 @@
     padding-bottom: 1em;
     padding-right: 2.83em;
   
-/*
-    padding-left: 2.83em;
-    padding-bottom: 0.3em;
-    padding-right: 2.83em;
-        width: 2em;
-    height: auto;
-    */
 }
 

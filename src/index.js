@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import Screen1 from './components/screen1Component/Screen1';
-import Screen2 from './components/screen2Component/Screen2';
+import Screen2 from './components/screen2Components/Screen2';
 import Screen3 from './components/screen3Component/Screen3';
 import Loading from './components/loadingComponent/Loading';
 import './styles/common.css';
