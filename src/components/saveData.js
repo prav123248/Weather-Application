@@ -27,6 +27,7 @@ export const saveSchedule = () => {
     scheduleDate = document.getElementById('dateSelector').value;
 
     if (scheduleDate === "") {
+        console.log("Please select a date in the calendar")
         return
     }
 
@@ -74,6 +75,7 @@ export const saveSchedule = () => {
 export const saveTrail = () => {
     const name = document.getElementById('nameInput').value;
     if (position === undefined || name === "") {
+        console.log("Please make sure name and a marker on the map is present")
         return
     }
     else {
@@ -81,6 +83,7 @@ export const saveTrail = () => {
         var trailList = readData()
         for (var i=0; i<trailList.length; i++) {
             if (trailList[i][0] === name) {
+                console.log("Please choose a different name for this trail, it already exists")
                 return
             }           
         }
