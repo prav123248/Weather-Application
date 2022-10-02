@@ -1,70 +1,37 @@
-# Getting Started with Create React App
+# Weather Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Description :
+This is a group project for a module called "Graphical User Interfaces" focused on building intuitive and well-designed user interfaces. This weather application is targetted towards our chosen stakeholder, hikers. Features and the user interface reflects our choice in stakeholder. Using the OpenWeatherMap API, this weather application prototype designed to run on mobile resolutions provides accurate results based on the current location. Additional functionalities include storing locations of trails and monitoring the ideal days to visit them based on weather conditions.
 
-## Available Scripts
+#### Main Weather Interface on the IPhone SE
+<img src="https://user-images.githubusercontent.com/78224090/193422621-dfd776fc-ee90-48d7-997b-73aabe333e9b.PNG" width="232" height="373" />
 
-In the project directory, you can run:
+The main interface makes use of weather data obtained from the OpenWeatherMap API and uses react to display them on a custom landscape background designed in photoshop. 
 
-### `npm start`
+#### Adding Trail (with Map)
+<img src="https://user-images.githubusercontent.com/78224090/193457363-893e45aa-5536-4de5-a312-013aba98d149.PNG" width=250/>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+The above image showcases how trails can be added by plotting points on a map. Hikes can be scheduled for stored trails, displaying the ideal day for a visit based on the upcoming week conditions.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Technologies used :
+    - HTML/CSS/Javascript
+    - React JS including components from React Leaflet
+    - React Bootstrap
+    - JQuery
+    - OpenWeatherMap API
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Functionalities implemented :
+    - Main view of current and upcoming weather, gathered from an API
+    - Adding the location of trails
+    - Scheduling a hike to stored trails
+    - Viewing the upcoming weather at a trail location
+    - Removing stored trails
+    - Removing scheduled hikes
+    
+### Setup :
+    (01) - Install Node
+    (02) - Open CMD in the Weather-Application directory
+    (03) - Run "npm install"
+    (04) - Run "npm run"
+    (05) - Use inspect element to adjust to mobile resolutions as this project was designed as a prototype for mobile applications.
+    
